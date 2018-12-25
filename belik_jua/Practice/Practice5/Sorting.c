@@ -251,25 +251,36 @@ void main()
             ind[i] = i;  
         scanf("%d", &i);
         printf("\n");
-        start = clock();
         switch (i) {
         case 1:
+            start = clock();
             ChooseSort(ind, size, N);
+            end = clock();
             break;
         case 2:
+            start = clock();
             InsertionSort(ind, size, N);
+            end = clock();
             break;
         case 3:
+            start = clock();
             BubbleSort(ind, size, N);
+            end = clock();
             break;
         case 4:
+            start = clock();
             count = CountingSort(ind, size, N);
+            end = clock();
             break;
         case 5:
+            start = clock();
             QuickSort(ind, size, 0, (N - 1));
+            end = clock();
             break;
         case 6:
+            start = clock();
             MergeSort(ind, size, 0, (N - 1));
+            end = clock();
             break;
         case 7:
             N = -1; 
@@ -290,7 +301,6 @@ void main()
             count = 1;
             break;
         }
-        end = clock();
         allTime = (float)(end - start) / CLOCKS_PER_SEC;
         if (count == 0)
             Print(ind, size, name, N, allTime);
