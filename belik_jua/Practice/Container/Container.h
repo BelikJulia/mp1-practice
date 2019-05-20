@@ -2,15 +2,16 @@
 #include <iostream>
 using namespace std;
 
-template <typename T, int maxsize>
+template <typename T>
 class Container
 {
 private:
     T** arr;
     int n;
+    int maxsize;
 public:
     Container();
-    Container(int x);
+    Container(int x, int m);
     Container(const Container& temp);
     ~Container();
 
@@ -24,19 +25,21 @@ public:
 
     void Print()const;
     void Fill();
+    void Increase(int a);
 };
 
-template <typename T, int maxsize>
-Container<T, maxsize>::Container()
+template <typename T>
+Container<T>::Container()
 {
     n = 0;
-    arr = new T*[maxsize];
+    maxsize = 0;
 }
 
-template <typename T, int maxsize>
-Container<T, maxsize>::Container(int x)
+template <typename T>
+Container<T>::Container(int x, int m)
 {
     n = x;
+    maxsize = m;
     arr = new T*[maxsize];
     for (int i = 0; i < n; i++)
     {
@@ -44,20 +47,21 @@ Container<T, maxsize>::Container(int x)
     }
 }
 
-template <typename T, int maxsize>
-Container<T, maxsize>::Container(const Container& temp)
+template <typename T>
+Container<T>::Container(const Container& temp)
 {
     n = temp.n;
+    maxsize = temp.maxsize;
     arr = new T*[maxsize];
     for (int i = 0; i < n; i++)
     {
         arr[i] = new T;
-        (*arr[i]) = temp.*arr[i];
+        *arr[i] = temp.*arr[i];
     }
 }
 
-template <typename T, int maxsize>
-Container<T, maxsize>::~Container()
+template <typename T>
+Container<T>::~Container()
 {
     for (int i = 0; i < n; i++)
     {
@@ -67,39 +71,39 @@ Container<T, maxsize>::~Container()
     n = 0;
 }
 
-template <typename T, int maxsize>
-bool Container<T, maxsize>::IsFull()const
+template <typename T>
+bool Container<T>::IsFull()const
 {
     return (n == maxsize);
 }
 
-template <typename T, int maxsize>
-bool Container<T, maxsize>::IsEmpty()const
+template <typename T>
+bool Container<T>::IsEmpty()const
 {
     return (n == 0);
 }
 
-template <typename T, int maxsize>
-int Container<T, maxsize>::Find(T a)const
+template <typename T>
+int Container<T>::Find(T a)const
 {
     for (int i = 0; i < n; i++)
-        if (*(arr[i]) == a)
+        if (*arr[i] == a)
             return i;
     return -1;
 }
 
-template <typename T, int maxsize>
-void Container<T, maxsize>::Add(T a)
+template <typename T>
+void Container<T>::Add(T a)
 {
     if (this->IsFull())
-        throw 2;
+        this->Increase(1);
     n++;
     arr[n - 1] = new T;
     *arr[n - 1] = a;
 }
 
-template <typename T, int maxsize>
-void Container<T, maxsize>::Remove(T a)
+template <typename T>
+void Container<T>::Remove(T a)
 {
     if (this->IsEmpty())
         throw 1;
@@ -111,16 +115,16 @@ void Container<T, maxsize>::Remove(T a)
     n--;
 }
 
-template <typename T, int maxsize>
-T* Container<T, maxsize>::operator[](int i)
+template <typename T>
+T* Container<T>::operator[](int i)
 {
     if ((i < 0) || (i >= n))
         throw 3;
     return arr[i];
 }
 
-template <typename T, int maxsize>
-void Container<T, maxsize>::Print()const
+template <typename T>
+void Container<T>::Print()const
 {
     if (this->IsEmpty())
         throw 1;
@@ -131,8 +135,8 @@ void Container<T, maxsize>::Print()const
     cout << endl;
 }
 
-template <typename T, int maxsize>
-void Container<T, maxsize>::Fill()
+template <typename T>
+void Container<T>::Fill()
 {
     if (this->IsEmpty())
         throw 1;
@@ -140,4 +144,26 @@ void Container<T, maxsize>::Fill()
     {
         cin >> *(arr[i]);
     }
+}
+
+template <typename T>
+void Container<T>::Increase(int a)
+{
+    T** x = new T*[n];
+    for (int i = 0; i < n; i++)
+    {
+        x[i] = new T;
+        x[i] = arr[i];
+        delete arr[i];
+    }
+    delete arr;
+    maxsize += a;
+    arr = new T*[maxsize];
+    for (int i = 0; i < n; i++)
+    {
+        arr[i] = new T;
+        arr[i] = x[i];
+        delete x[i];
+    }
+    delete x;
 }

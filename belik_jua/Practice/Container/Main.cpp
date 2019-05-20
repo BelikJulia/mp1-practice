@@ -10,7 +10,7 @@ void main()
     int size;
     cout << "Size = ";
     cin >> size;
-    mContainer<int, MAX_SIZE> A(size);
+    mContainer<int> A(size, MAX_SIZE);
     try
     {
         A.Fill();
@@ -217,7 +217,7 @@ void main()
     cout << "Container" << endl;
     cout << "Size = ";
     cin >> size;
-    Container<int, MAX_SIZE> B(size);
+    Container<int> B(size, MAX_SIZE);
     try
     {
         B.Fill();
