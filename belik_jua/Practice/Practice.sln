@@ -9,6 +9,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Practice1", "Practice1\Prac
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Practice2", "Practice2\Practice2.vcxproj", "{5681AF03-AD4A-4B42-A87C-EBD0D9302E6F}"
 EndProject
+
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Practice3", "Practice3\Practice3.vcxproj", "{CCE07885-9CD2-4DD2-B888-43E853D93595}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Practice4", "Practice4\Practice4.vcxproj", "{12B98A65-BE58-40ED-9672-147BBF3C26F1}"
