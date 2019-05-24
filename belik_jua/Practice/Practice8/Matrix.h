@@ -20,7 +20,7 @@ public:
     double* operator[] (int a) const;
 
     void Print() const;
-    Matrix& operator= (const Matrix& m);
+    const Matrix& operator= (const Matrix& m);
     bool operator== (const Matrix& m) const;
     void Fill();
 };

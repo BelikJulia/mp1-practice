@@ -22,33 +22,9 @@ int main()
         cout << A << endl;
     }
 
-    try
-    {
-        m1.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
-
-    try
-    {
-        m2.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
-
-    try
-    {
-        m3.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
-
+    m1.Print();
+    m2.Print();
+    m3.Print();
 
     try
     {
@@ -60,14 +36,7 @@ int main()
         cout << A << endl;
     }
 
-    try
-    {
-        m1.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    m1.Print();
 
     try
     {
@@ -79,25 +48,11 @@ int main()
         cout << A << endl;
     }
 
-    try
-    {
-        m1.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    m1.Print();
 
     m1 = m3 + 1.0;
     cout << "m1 = m3 + 1.0" << endl;
-    try
-    {
-        m1.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    m1.Print();
 
     try
     {
