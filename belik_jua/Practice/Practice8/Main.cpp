@@ -12,9 +12,20 @@ int main()
     m2.Fill();
     Matrix m3(2, 3);
     m3.Fill();
+    Matrix m4(3, 2);
+
     try
     {
         m1 = m3 + m2;
+        cout << "m1 = m2 + m1" << endl;
+    }
+    catch (const char* A)
+    {
+        cout << A << endl;
+    }
+    try
+    {
+        m1 = m3 + m4;
         cout << "m1 = m2 + m1" << endl;
     }
     catch (const char* A)
@@ -47,7 +58,15 @@ int main()
     {
         cout << A << endl;
     }
-
+    try
+    {
+        m1 = m3 * m4;
+        cout << "m1 = m2 * m1" << endl;
+    }
+    catch (const char* A)
+    {
+        cout << A << endl;
+    }
     m1.Print();
 
     m1 = m3 + 1.0;
