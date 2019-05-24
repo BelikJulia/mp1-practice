@@ -12,5 +12,5 @@ public:
 
     bool operator== (const Date& tmp) const;
     void Print()const;
-    Date& operator= (const Date& tmp);
+    const Date& operator= (const Date& tmp);
 };

@@ -42,7 +42,7 @@ void Date::Print()const
     cout << d << "." << m << "." << y << endl;
 }
 
-Date& Date::operator= (const Date& tmp)
+const Date& Date::operator= (const Date& tmp)
 {
     if (*this == tmp)
         return *this;
