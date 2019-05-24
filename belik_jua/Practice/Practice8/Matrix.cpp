@@ -101,13 +101,11 @@ double* Matrix::operator[] (int a) const
 {
     if ((a < 0) || (a >= x))
         throw "No row";
-    return &(matr[y * a]);
+    return matr + y * a;
 }
 
 void Matrix::Print() const
 {
-    if ((x == 0) || (y == 0))
-        throw "No elem";
     for (int i = 0; i < (x * y); i++)
     {
         cout << matr[i] << " ";
@@ -116,7 +114,7 @@ void Matrix::Print() const
     }
 }
 
-Matrix& Matrix::operator= (const Matrix& m)
+const Matrix& Matrix::operator= (const Matrix& m)
 { 
     if (*this == m)
     {
