@@ -83,7 +83,7 @@ Vector Vector::operator* (double tmp) const
     return res;
 }
 
-Vector& Vector::operator= (const Vector & tmp)
+const Vector& Vector::operator= (const Vector & tmp)
 {
     if (*this == tmp)
     {
@@ -165,8 +165,6 @@ void Vector::operator delete[](void *p)
 
 void Vector::PrintVector() const
 {
-    if (size == 0)
-        throw "Size";
     for (int i = 0; i < size; i++)
         cout << arr[i] << " ";
     cout << endl << endl;

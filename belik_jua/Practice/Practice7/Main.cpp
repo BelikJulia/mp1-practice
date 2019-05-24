@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-int main() //catch
+int main()
 {
     int i;
     double a;
@@ -22,34 +22,9 @@ int main() //catch
     {
         cout << A << endl;
     }
-
-    try
-    {
-        v1.PrintVector();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
-
-    try
-    {
-        v2.PrintVector();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
-
-    try
-    {
-        v3.PrintVector();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
-
+    v1.PrintVector();
+    v2.PrintVector();
+    v3.PrintVector();
 
     try
     {
@@ -60,59 +35,23 @@ int main() //catch
     {
         cout << A << endl;
     }
-    
-    try
-    {
-        v1.PrintVector();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    v1.PrintVector();
 
     v2 -= 5;
     cout << "v2 -= 5" << endl;
-    try
-    {
-        v2.PrintVector();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    v2.PrintVector();
 
     v2 += 10;
     cout << "v2 += 10" << endl;
-    try
-    {
-        v2.PrintVector();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    v2.PrintVector();
 
     v2 *= 1.5;
     cout << "v2 *= 1.5" << endl;
-    try
-    {
-        v2.PrintVector();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    v2.PrintVector();
 
     v1 = v3 + 1.0;
     cout << "v1 = v3 + 1.0" << endl;
-    try
-    {
-        v1.PrintVector();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    v1.PrintVector();
     try
     {
         a = v2 * v3;
@@ -135,14 +74,7 @@ int main() //catch
     {
         cout << A << endl;
     }
-    try
-    {
-        v2.PrintVector();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    v2.PrintVector();
 
     cin >> i;   
     return 0;
