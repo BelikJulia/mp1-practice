@@ -17,7 +17,7 @@ public:
     Vector operator+ (double tmp) const;
     Vector operator- (double tmp) const;
     Vector operator* (double tmp) const;
-    Vector& operator= (const Vector & tmp);
+    const Vector& operator= (const Vector & tmp);
     double* operator[] (int i) const;
     double Lenght() const;
     Vector& operator+= (const Vector & tmp);
