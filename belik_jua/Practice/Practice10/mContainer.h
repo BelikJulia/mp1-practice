@@ -6,12 +6,13 @@ template <typename T>
 class Container
 {
 private:
-    T** arr;
+    T* arr;
     int n;
     int maxsize;
+    void Increase(int a);
 public:
     Container();
-    Container(int x, int m);
+    Container(int m);
     Container(const Container& temp);
     ~Container();
 
@@ -21,11 +22,11 @@ public:
     int Find(T a)const;
     void Add(T a);
     void Remove(T a);
-    T* operator[](int i);
+    T& operator[](int i);
+    const T& operator[](int i)const;
 
     void Print()const;
     void Fill();
-    void Increase(int a);
 };
 
 template <typename T>
@@ -36,15 +37,11 @@ Container<T>::Container()
 }
 
 template <typename T>
-Container<T>::Container(int x, int m)
+Container<T>::Container(int m)
 {
-    n = x;
     maxsize = m;
-    arr = new T*[maxsize];
-    for (int i = 0; i < n; i++)
-    {
-        arr[i] = new T;
-    }
+    n = 0;
+    arr = new T[maxsize];
 }
 
 template <typename T>
@@ -52,21 +49,16 @@ Container<T>::Container(const Container& temp)
 {
     n = temp.n;
     maxsize = temp.maxsize;
-    arr = new T*[maxsize];
+    arr = new T[maxsize];
     for (int i = 0; i < n; i++)
     {
-        arr[i] = new T;
-        *arr[i] = temp.*arr[i];
+        arr[i] = temp.arr[i];
     }
 }
 
 template <typename T>
 Container<T>::~Container()
 {
-    for (int i = 0; i < n; i++)
-    {
-        delete arr[i];
-    }
     delete arr;
     n = 0;
 }
@@ -87,7 +79,7 @@ template <typename T>
 int Container<T>::Find(T a)const
 {
     for (int i = 0; i < n; i++)
-        if (*arr[i] == a)
+        if (arr[i] == a)
             return i;
     return -1;
 }
@@ -97,9 +89,7 @@ void Container<T>::Add(T a)
 {
     if (this->IsFull())
         this->Increase(1);
-    n++;
-    arr[n - 1] = new T;
-    *arr[n - 1] = a;
+    arr[n++] = a;
 }
 
 template <typename T>
@@ -110,13 +100,19 @@ void Container<T>::Remove(T a)
     int j = Find(a);
     if (j == -1)
         throw 3;
-    *arr[j] = *arr[n - 1];
-    delete arr[n - 1];
-    n--;
+    arr[j] = arr[--n];
 }
 
 template <typename T>
-T* Container<T>::operator[](int i)
+T& Container<T>::operator[](int i)
+{
+    if ((i < 0) || (i >= n))
+        throw 3;
+    return arr[i];
+}
+
+template <typename T>
+const T& Container<T>::operator[](int i)const
 {
     if ((i < 0) || (i >= n))
         throw 3;
@@ -126,11 +122,9 @@ T* Container<T>::operator[](int i)
 template <typename T>
 void Container<T>::Print()const
 {
-    if (this->IsEmpty())
-        throw 1;
     for (int i = 0; i < n; i++)
     {
-        cout << *(arr[i]) << " ";
+        cout << arr[i] << " ";
     }
     cout << endl;
 }
@@ -142,28 +136,17 @@ void Container<T>::Fill()
         throw 1;
     for (int i = 0; i < n; i++)
     {
-        cin >> *(arr[i]);
+        cin >> arr[i];
     }
 }
 
 template <typename T>
 void Container<T>::Increase(int a)
 {
-    T** x = new T*[n];
-    for (int i = 0; i < n; i++)
-    {
-        x[i] = new T;
-        x[i] = arr[i];
-        delete arr[i];
-    }
-    delete arr;
     maxsize += a;
-    arr = new T*[maxsize];
+    T* x = new T[maxsize];
     for (int i = 0; i < n; i++)
-    {
-        arr[i] = new T;
-        arr[i] = x[i];
-        delete x[i];
-    }
+        x[i] = arr[i];
+    arr = x;
     delete x;
 }

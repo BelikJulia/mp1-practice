@@ -15,10 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Container.h">
+    <ClInclude Include="mContainer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="mContainer.h">
+    <ClInclude Include="Container.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
