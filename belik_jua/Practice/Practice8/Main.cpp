@@ -73,6 +73,14 @@ int main()
     cout << "m1 = m3 + 1.0" << endl;
     m1.Print();
 
+    m1 = m3 - 2.0;
+    cout << "m1 = m3 - 2.0" << endl;
+    m1.Print();
+
+    m1 = m3 * 1.5;
+    cout << "m1 = m3 * 1.5" << endl;
+    m1.Print();
+
     try
     {
         cout << "m2[1] = " << *m2[1] << endl;

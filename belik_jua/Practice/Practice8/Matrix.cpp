@@ -14,6 +14,7 @@ Matrix::Matrix(int _x, int _y)
     x = _x;
     y = _y;
     matr = new double[_x * _y];
+    memset(&matr[_x * _y], 0.0, sizeof(matr[_x * _y]));
 }
 
 Matrix::Matrix(double *_matr, int _x, int _y)
@@ -22,7 +23,7 @@ Matrix::Matrix(double *_matr, int _x, int _y)
     y = _y;
     matr = new double[_x * _y];
     for (int i = 0; i < (_x * _y); i++)
-        matr[i] = _matr[i];
+        memcpy(&matr[i], &_matr[i], sizeof(matr[i]));
 }
 
 Matrix::Matrix(const Matrix& m)
@@ -31,7 +32,7 @@ Matrix::Matrix(const Matrix& m)
     y = m.y;
     matr = new double[x * y];
     for (int i = 0; i < (x * y); i++)
-        matr[i] = m.matr[i];
+        memcpy(&matr[i], &m.matr[i], sizeof(matr[i]));
 }
 
 Matrix::~Matrix()
@@ -68,8 +69,11 @@ Matrix Matrix::operator* (const Matrix& m) const
     Matrix res(x, m.y);
     for (int i = 0; i < x; i++)
         for (int j = 0; j < m.y; j++)
+        {
+            res.matr[i * m.y + j] = 0.0;
             for (int k = 0; k < y; k++)
                 res.matr[i * m.y + j] += matr[i * y + k] * m.matr[k * m.y + i];
+        }
     return res;
 }
 
@@ -125,7 +129,7 @@ const Matrix& Matrix::operator= (const Matrix& m)
     y = m.y;
     matr = new double[x * y];
     for (int i = 0; i < (x * y); i++)
-        matr[i] = m.matr[i];
+        memcpy(&matr[i], &m.matr[i], sizeof(matr[i]));
     return *this;
 }
 
