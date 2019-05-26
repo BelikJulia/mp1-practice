@@ -66,9 +66,9 @@ int main()
     cout << "Len(v2) = " << a << endl;
     try
     {
-        cout << "v2[0] = " << *v2[0] << endl;
-        *v2[0] = 1.0;
-        cout << "v2[0] = 1 = " << *v2[0] << endl;
+        cout << "v2[0] = " << v2[0] << endl;
+        v2[0] = 1.0;
+        cout << "v2[0] = 1 = " << v2[0] << endl;
     }
     catch (const char* A)
     {

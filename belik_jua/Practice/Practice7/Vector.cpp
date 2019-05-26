@@ -97,11 +97,18 @@ const Vector& Vector::operator= (const Vector & tmp)
     return *this;
 }
 
-double* Vector::operator[] (int i) const
+double& Vector::operator[] (int i)
 {
     if ((i < 0) || (i >= size))
         throw "No elem";
-    return &(arr[i]);
+    return arr[i];
+}
+
+const double& Vector::operator[] (int i)const
+{
+    if ((i < 0) || (i >= size))
+        throw "No elem";
+    return arr[i];
 }
 
 double Vector::Lenght() const
