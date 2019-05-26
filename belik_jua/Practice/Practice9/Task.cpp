@@ -9,11 +9,10 @@ Task::Task()
 
 Task::~Task()
 {
-    date.~Date();
     description.clear();
 }
 
-Date Task::GetDate()
+Date Task::GetDate()const
 {
     return date;
 }
@@ -32,11 +31,10 @@ Type1::Type1(string des, Date d)
 
 Type1::~Type1()
 {
-    date.~Date();
     description.clear();
 }
 
-Date Type1::GetDate()
+Date Type1::GetDate()const
 {
     return date;
 }
@@ -46,7 +44,7 @@ void Type1::Print()const
     cout << "All day task: " << description << endl;
 }
 
-Type1& Type1::operator= (const Type1& tmp)
+const Type1& Type1::operator= (const Type1& tmp)
 {
     date = tmp.date;
     description = tmp.description;
@@ -71,13 +69,11 @@ Type2::Type2(string des, Date d, Time t, unsigned dur)
 
 Type2::~Type2()
 {
-    date.~Date();
     description.clear();
-    time.~Time();
     durations = 0;
 }
 
-Date Type2::GetDate()
+Date Type2::GetDate()const
 {
     return date;
 }
@@ -89,7 +85,7 @@ void Type2::Print()const
     cout << description << " duration: " << durations << " min" << endl;
 }
 
-Type2& Type2::operator= (const Type2& tmp)
+const Type2& Type2::operator= (const Type2& tmp)
 {
     date = tmp.date;
     description = tmp.description;

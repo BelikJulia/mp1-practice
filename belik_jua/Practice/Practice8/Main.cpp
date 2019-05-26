@@ -12,6 +12,8 @@ int main()
     m2.Fill();
     Matrix m3(2, 3);
     m3.Fill();
+    Matrix m4(3, 2);
+
     try
     {
         m1 = m3 + m2;
@@ -21,34 +23,19 @@ int main()
     {
         cout << A << endl;
     }
-
     try
     {
-        m1.Print();
+        m1 = m3 + m4;
+        cout << "m1 = m2 + m1" << endl;
     }
     catch (const char* A)
     {
         cout << A << endl;
     }
 
-    try
-    {
-        m2.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
-
-    try
-    {
-        m3.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
-
+    m1.Print();
+    m2.Print();
+    m3.Print();
 
     try
     {
@@ -60,14 +47,7 @@ int main()
         cout << A << endl;
     }
 
-    try
-    {
-        m1.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    m1.Print();
 
     try
     {
@@ -78,26 +58,28 @@ int main()
     {
         cout << A << endl;
     }
-
     try
     {
-        m1.Print();
+        m1 = m3 * m4;
+        cout << "m1 = m2 * m1" << endl;
     }
     catch (const char* A)
     {
         cout << A << endl;
     }
+    m1.Print();
 
     m1 = m3 + 1.0;
     cout << "m1 = m3 + 1.0" << endl;
-    try
-    {
-        m1.Print();
-    }
-    catch (const char* A)
-    {
-        cout << A << endl;
-    }
+    m1.Print();
+
+    m1 = m3 - 2.0;
+    cout << "m1 = m3 - 2.0" << endl;
+    m1.Print();
+
+    m1 = m3 * 1.5;
+    cout << "m1 = m3 * 1.5" << endl;
+    m1.Print();
 
     try
     {

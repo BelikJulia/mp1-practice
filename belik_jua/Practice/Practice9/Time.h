@@ -12,5 +12,5 @@ public:
 
     void Print()const;
     bool operator== (const Time& tmp)const;
-    Time& operator= (const Time& tmp);
+    const Time& operator= (const Time& tmp);
 };

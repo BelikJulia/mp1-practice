@@ -83,7 +83,7 @@ Vector Vector::operator* (double tmp) const
     return res;
 }
 
-Vector& Vector::operator= (const Vector & tmp)
+const Vector& Vector::operator= (const Vector & tmp)
 {
     if (*this == tmp)
     {
@@ -97,11 +97,18 @@ Vector& Vector::operator= (const Vector & tmp)
     return *this;
 }
 
-double* Vector::operator[] (int i) const
+double& Vector::operator[] (int i)
 {
     if ((i < 0) || (i >= size))
         throw "No elem";
-    return &(arr[i]);
+    return arr[i];
+}
+
+const double& Vector::operator[] (int i)const
+{
+    if ((i < 0) || (i >= size))
+        throw "No elem";
+    return arr[i];
 }
 
 double Vector::Lenght() const
@@ -165,8 +172,6 @@ void Vector::operator delete[](void *p)
 
 void Vector::PrintVector() const
 {
-    if (size == 0)
-        throw "Size";
     for (int i = 0; i < size; i++)
         cout << arr[i] << " ";
     cout << endl << endl;
