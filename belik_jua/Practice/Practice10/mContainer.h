@@ -148,5 +148,4 @@ void Container<T>::Increase(int a)
     for (int i = 0; i < n; i++)
         x[i] = arr[i];
     arr = x;
-    delete x;
 }
