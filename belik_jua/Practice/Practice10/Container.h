@@ -155,5 +155,4 @@ void Container<T*>::Increase(int a)
         x[i] = arr[i];
     }
     arr = x;
-    delete x;
 }
