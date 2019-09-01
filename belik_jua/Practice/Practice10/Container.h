@@ -26,8 +26,19 @@ public:
     T& operator[](int i);
     const T& operator[](int i)const;
 
-    void Print()const;
-    void Fill();
+    friend istream& operator>>(istream&, Container& c)
+    {
+        for (int i = 0; i < c.n; i++)
+            in >> c[i];
+        return in;
+    }
+
+    friend ostream& operator<<(ostream& out, const Container& c)
+    {
+        for (int i = 0; i < c.n; i++)
+            out << c[i] << " ";
+        return out;
+    }
 };
 
 template <typename T>
@@ -122,27 +133,6 @@ const T& Container<T*>::operator[](int i)const
     if ((i < 0) || (i >= n))
         throw 3;
     return *arr[i];
-}
-
-template <typename T>
-void Container<T*>::Print()const
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << *(arr[i]) << " ";
-    }
-    cout << endl;
-}
-
-template <typename T>
-void Container<T*>::Fill()
-{
-    if (this->IsEmpty())
-        throw 1;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> *(arr[i]);
-    }
 }
 
 template <typename T>
