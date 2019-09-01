@@ -6,7 +6,6 @@ private:
     double *matr;
     int x, y;
 public:
-    Matrix();
     Matrix(int _x, int _y);
     Matrix(double *_matr, int _x, int _y);
     Matrix(const Matrix& m);
@@ -19,8 +18,9 @@ public:
     Matrix operator* (double a) const;
     double* operator[] (int a) const;
 
-    void Print() const;
     const Matrix& operator= (const Matrix& m);
     bool operator== (const Matrix& m) const;
-    void Fill();
+
+    friend istream& operator>> (istream&, Matrix&);
+    friend ostream& operator<< (ostream&, const Matrix&);
 };

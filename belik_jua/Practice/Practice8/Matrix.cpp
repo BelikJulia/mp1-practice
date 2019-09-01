@@ -2,13 +2,6 @@
 #include <iostream>
 using namespace std;
 
-Matrix::Matrix()
-{
-    x = 0;
-    y = 0;
-    matr = NULL;
-}
-
 Matrix::Matrix(int _x, int _y)
 {
     x = _x;
@@ -108,16 +101,6 @@ double* Matrix::operator[] (int a) const
     return matr + y * a;
 }
 
-void Matrix::Print() const
-{
-    for (int i = 0; i < (x * y); i++)
-    {
-        cout << matr[i] << " ";
-        if (i % y == (y - 1))
-            cout << endl;
-    }
-}
-
 const Matrix& Matrix::operator= (const Matrix& m)
 { 
     if (*this == m)
@@ -144,8 +127,20 @@ bool Matrix:: operator== (const Matrix& m) const
     return true;
 }
 
-void Matrix::Fill()
+istream& operator>>(istream& in, Matrix& m)
 {
-    for (int i = 0; i < (x * y); i++)
-        cin >> matr[i];
+    for (int i = 0; i < (m.x * m.y); i++)
+        in >> m.matr[i];
+    return in;
+}
+
+ostream& operator<<(ostream &out, const Matrix& m)
+{
+    for (int i = 0; i < (m.x * m.y); i++)
+    {
+        out << matr[i] << " ";
+        if (i % y == (y - 1))
+            out << endl;
+    }
+    return out;
 }

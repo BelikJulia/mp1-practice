@@ -7,11 +7,11 @@ int main()
 {
     int i;
 
-    Matrix m1;
+    Matrix m1(2, 3);
     Matrix m2(2, 3);
-    m2.Fill();
+    cin >> m2;
     Matrix m3(2, 3);
-    m3.Fill();
+    cin >> m3;
     Matrix m4(3, 2);
 
     try
@@ -33,9 +33,7 @@ int main()
         cout << A << endl;
     }
 
-    m1.Print();
-    m2.Print();
-    m3.Print();
+    cout << m1 << endl << m2 << endl << m3 << endl;
 
     try
     {
@@ -47,7 +45,7 @@ int main()
         cout << A << endl;
     }
 
-    m1.Print();
+    cout << m1 << endl;
 
     try
     {
@@ -67,19 +65,19 @@ int main()
     {
         cout << A << endl;
     }
-    m1.Print();
+    cout << m1 << endl;
 
     m1 = m3 + 1.0;
     cout << "m1 = m3 + 1.0" << endl;
-    m1.Print();
+    cout << m1 << endl;
 
     m1 = m3 - 2.0;
     cout << "m1 = m3 - 2.0" << endl;
-    m1.Print();
+    cout << m1 << endl;
 
     m1 = m3 * 1.5;
     cout << "m1 = m3 * 1.5" << endl;
-    m1.Print();
+    cout << m1 << endl;
 
     try
     {
