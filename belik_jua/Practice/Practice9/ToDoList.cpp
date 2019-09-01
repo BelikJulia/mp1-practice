@@ -39,7 +39,7 @@ void ToDoList::Print(Date a)const
 
 }
 
-void ToDoList::Read(const char* A)
+void ToDoList::Read(const string A)
 {
     ifstream fin(A);
     if (!fin.is_open())
