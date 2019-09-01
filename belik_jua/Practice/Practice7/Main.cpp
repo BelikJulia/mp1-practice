@@ -8,11 +8,11 @@ int main()
     int i;
     double a;
 
-    Vector v1;
+    Vector v1(3);
     Vector v2(3);
-    v2.Fill();
+    cin >> v2;
     Vector v3(3);
-    v3.Fill();
+    cin >> v3;
     try 
     {
         v1 = v3 + v2;
@@ -22,9 +22,7 @@ int main()
     {
         cout << A << endl;
     }
-    v1.PrintVector();
-    v2.PrintVector();
-    v3.PrintVector();
+    cout << v1 << endl << v2 << endl << v3 << endl;
 
     try
     {
@@ -35,23 +33,23 @@ int main()
     {
         cout << A << endl;
     }
-    v1.PrintVector();
+    cout << v1 << endl;
 
     v2 -= 5;
     cout << "v2 -= 5" << endl;
-    v2.PrintVector();
+    cout << v2 << endl;
 
     v2 += 10;
     cout << "v2 += 10" << endl;
-    v2.PrintVector();
+    cout << v2 << endl;
 
     v2 *= 1.5;
     cout << "v2 *= 1.5" << endl;
-    v2.PrintVector();
+    cout << v2 << endl;
 
     v1 = v3 + 1.0;
     cout << "v1 = v3 + 1.0" << endl;
-    v1.PrintVector();
+    cout << v1 << endl;
     try
     {
         a = v2 * v3;
@@ -74,7 +72,7 @@ int main()
     {
         cout << A << endl;
     }
-    v2.PrintVector();
+    cout << v2 << endl;
 
     cin >> i;   
     return 0;
