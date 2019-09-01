@@ -13,7 +13,7 @@ void main()
     Container<int> A(MAX_SIZE);
     for (int i = 0; i < size; i++)
         A.Add(i);
-    A.Print();
+    cout << A;
     int n;
 
     cout << "Remove ";
@@ -39,7 +39,7 @@ void main()
             cout << "Error" << endl;
         }
     }
-    A.Print();
+    cout << A;
 
     cout << "Add ";
     cin >> n;
@@ -64,7 +64,7 @@ void main()
             cout << "Error" << endl;
         }
     }
-    A.Print();
+    cout << A;
 
     cout << "Find ";
     cin >> n;
@@ -113,7 +113,7 @@ void main()
             cout << "Error" << endl;
         }
     }
-    A.Print();
+    cout << A;
 
     cout << "Container" << endl;
     cout << "Size = ";
@@ -122,7 +122,7 @@ void main()
     for (int i = 0; i < size; i++)
         B.Add(&i);
 
-    B.Print();
+    cout << B;
 
     cout << "Remove ";
     cin >> n;
@@ -147,7 +147,7 @@ void main()
             cout << "Error" << endl;
         }
     }
-    B.Print();
+    cout << B;
 
     cout << "Add ";
     cin >> n;
@@ -172,7 +172,7 @@ void main()
             cout << "Error" << endl;
         }
     }
-    B.Print();
+    cout << B;
 
     cout << "Find ";
     cin >> n;
@@ -222,5 +222,5 @@ void main()
         }
     }
     cout << "B[1] = 6" << endl;
-    B.Print();
+    cout << B;
 }
