@@ -29,7 +29,8 @@ public:
     void *operator new[](size_t size);
     void operator delete[] (void *p);
 
-    void PrintVector() const;
-    void Fill();
     bool operator==(const Vector & tmp) const;
+
+    friend istream& operator>> (istream&, Vector&);
+    friend ostream& operator<< (ostream&, const Vector&);
 };

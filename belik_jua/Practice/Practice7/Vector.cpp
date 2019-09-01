@@ -170,21 +170,6 @@ void Vector::operator delete[](void *p)
     delete[] p;
 }
 
-void Vector::PrintVector() const
-{
-    for (int i = 0; i < size; i++)
-        cout << arr[i] << " ";
-    cout << endl << endl;
-}
-
-void Vector::Fill()
-{
-    if (size == 0)
-        throw "Size";
-    for (int i = 0; i < size; i++)
-        cin >> arr[i];
-}
-
 bool Vector::operator==(const Vector & tmp) const
 {
     if (size != tmp.size) return false;
@@ -195,4 +180,18 @@ bool Vector::operator==(const Vector & tmp) const
     }
     if (f == 1) return false;
     return true;
+}
+
+istream& operator>> (istream& in, Vector& v)
+{
+    for (int i = 0; i < v.size; i++)
+        in >> v.arr[i];
+    return in;
+}
+
+ostream& operator<< (ostream &out, const Vector& v)
+{
+    for (int i = 0; i < v.size; i++)
+        out << v[i] << " ";
+    return out;
 }
