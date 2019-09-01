@@ -5,7 +5,7 @@ using namespace std;
 void main()
 {
     ToDoList t;
-    char Aa[50];
+    string Aa;
     cin >> Aa;
     try 
     {

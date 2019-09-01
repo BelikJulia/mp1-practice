@@ -12,5 +12,5 @@ public:
     ~ToDoList();
 
     void Print(Date a) const;
-    void Read(const char* A);
+    void Read(const string A);
 };
